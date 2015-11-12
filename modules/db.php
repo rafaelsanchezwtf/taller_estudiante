@@ -114,7 +114,7 @@ class db
 					$nota_final = mysqli_real_escape_string($this->cn,$object->get('nota_final'));
 					$curso = mysqli_real_escape_string($this->cn,$object->get('curso'));
 					$estudiante = mysqli_real_escape_string($this->cn,$object->get('estudiante'));
-					$this->do_operation("INSERT INTO estudiante (id,nota_final,curso,estudiante) VALUES ('$id', '$nota_final','$curso','$estudiante');");
+					$this->do_operation("INSERT INTO matricula (id,nota_final,curso,estudiante) VALUES ('$id', '$nota_final','$curso','$estudiante');");
 					break;
 			}
 			break;
@@ -126,7 +126,7 @@ class db
 					$id = mysqli_real_escape_string($this->cn,$object->get('id'));
 					$nombre = mysqli_real_escape_string($this->cn,$object->get('nombre'));
 					$facultad = mysqli_real_escape_string($this->cn,$object->get('facultad'));
-					$this->do_operation("INSERT INTO estudiante (id,nombre,facultad) VALUES ('$id', '$nombre','$facultad');");
+					$this->do_operation("INSERT INTO curso (id,nombre,facultad) VALUES ('$id', '$nombre','$facultad');");
 					break;
 			}
 			break;
@@ -190,7 +190,15 @@ class db
 			switch($option['lvl2'])
 			{
 				case "all": 
-					//
+					$info=$this->get_data("SELECT * FROM estudiante;");
+					break;
+			}
+			break;
+			case "curso":
+			switch($option['lvl2'])
+			{
+				case "all": 
+					$info=$this->get_data("SELECT * FROM curso;");
 					break;
 			}
 			break;

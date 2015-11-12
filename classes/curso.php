@@ -18,6 +18,14 @@ class curso extends object_standard
 	{
 		return array("id" => array(), "nombre" => array(), "facultad" => array()); 
 	}
+	public function getId()
+	{
+		return $id;
+	}
+		public function getNombre()
+	{
+		return $nombre;
+	}
 
 	public function primary_key()
 	{
