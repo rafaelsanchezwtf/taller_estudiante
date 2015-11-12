@@ -49,6 +49,7 @@ class c_agregar_curso_A extends super_controller {
 		if(is_empty($curso->get('id')))
         {throw_exception("Error: Llenar el ID");}
 		
+		
 		$this->orm->connect();
         $this->orm->insert_data("normal",$curso);
         $this->orm->close();
